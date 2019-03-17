@@ -1,9 +1,15 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es6: true,
   },
-  extends: 'airbnb-base',
+  extends: [
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'prettier/vue',
+    // 'plugin:prettier/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -14,8 +20,9 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: 'module',
+    parser: 'babel-eslint',
   },
-  plugins: ['vue'],
+  plugins: ['html', 'vue'],
 
   rules: {
     /* Best Practices */
@@ -53,5 +60,17 @@ module.exports = {
     'operator-linebreak': 0,
     'implicit-arrow-linebreak': 0,
     'object-curly-newline': ['error', { consistent: true }],
+
+    // /* Vue */
+    // 'vue/max-attributes-per-line': [
+    //   'error',
+    //   {
+    //     singleline: 1,
+    //     multiline: {
+    //       max: 1,
+    //       allowFirstLine: false,
+    //     },
+    //   },
+    // ],
   },
 };
